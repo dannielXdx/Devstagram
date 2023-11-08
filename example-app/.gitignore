@@ -1,5 +1,4 @@
 /bootstrap/compiled.php
-/storage
 /.phpunit.cache
 /node_modules
 /public/build

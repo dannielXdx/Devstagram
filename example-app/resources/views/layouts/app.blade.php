@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>DevStagram - @yield('titulo')</title>
-        @vite("resurces/css/app.css")
+        @vite("resources/css/app.css")
     </head>
     <body>
         <h1>@yield('titulo')</h1>
