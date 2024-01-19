@@ -41,6 +41,17 @@ class RegisterController extends Controller
             // para el hash en el campo es (no fue necesario en este caso):
             // 'password' => Hash::make($request->password),
         ]);
+
+        // Autenticar un usuario
+        // auth()->attempt([
+        //     'email' => $request->email,
+        //     'password' => $request->password,
+        // ]);
+        
+        //Otra forma de autenticar
+        auth()->attempt($request->only('email', 'password'));
+
+        //Redireccionar
         return redirect()->route('posts.index');
     }
 }

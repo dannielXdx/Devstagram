@@ -13,14 +13,31 @@
                 <h1 class="text-3xl font-black">
                     DevStagram
                 </h1>
+                {{-- @if(auth()->user())
+                    <p>Autenticado</p>
+                @else
+                    <p>No autenticado</p>
+                @endif --}}
                 <nav class="flex gap-4">
-                    <a class="font-bold uppercase text-gray-600 text-sm" 
-                    href={{ route('register') }}>
+                    @auth
+                    <button class="font-bold uppercase text-gray-600 text-sm">
+                        Hola <span class="font-normal"> {{ auth()->user()->username }} </span> 
+                    </button>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="font-bold uppercase text-gray-600 text-sm" href={{ route('logout') }}>
+                            Cerrar sesión
+                        </button>
+                    </form>
+                    @endauth
+                    @guest
+                        <a class="font-bold uppercase text-gray-600 text-sm" href={{ route('register') }}>
                             Crear cuenta
-                    </a>
-                    <a class="font-bold uppercase text-gray-600 text-sm"
-                        href="#">Login
-                    </a>
+                        </a>
+                        <a class="font-bold uppercase text-gray-600 text-sm" href={{ route('login') }}>
+                            Login
+                        </a>
+                    @endguest
                 </nav>
             </div>
         </header>
@@ -30,7 +47,7 @@
             </h2>
             @yield('content')
         </main>
-        <footer class="mt-10 text-center p-5 text-gray-500 font-bold">
+        <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
             DevStagram - Todos los derechos reservados {{ now()->year }}.
         </footer>
     </body>
