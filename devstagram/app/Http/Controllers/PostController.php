@@ -18,4 +18,17 @@ class PostController extends Controller
             'user' => $user
         ]);
     }
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'title'=> 'required|min:3|max:100',
+            'description' => 'required',
+            'image' => 'required'
+        ]);
+    }
 }
