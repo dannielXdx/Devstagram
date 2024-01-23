@@ -43,4 +43,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+        // Para casos donde se rompe la convención de laravel y sus nombres,
+        // se puede especificar el campo de la fk de esta forma
+        // return $this->hasMany(Post::class, 'user_id');
+    }
 }

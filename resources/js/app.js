@@ -14,7 +14,7 @@ const dropzone = new Dropzone(".dropzone", {
         init:function(){
             if(document.querySelector('[name="image"]').value.trim()){
                 const imagenPublicada = {}
-                imagenPublicada.size = 1234
+                imagenPublicada.size = 1234 // valor obligatorio pero no ocupado en esta situación, se pone cualquier cosa
                 imagenPublicada.name = document.querySelector('[name="image"]').value;
 
                 this.options.addedfile.call(this, imagenPublicada);
@@ -27,4 +27,8 @@ const dropzone = new Dropzone(".dropzone", {
 
 dropzone.on('success', function(file, response){
     document.querySelector('[name="image"]').value = response.image;
+})
+
+dropzone.on('removedfile', function(){
+    document.querySelector('[name="image"]').value = null;
 })
