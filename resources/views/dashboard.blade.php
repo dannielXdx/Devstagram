@@ -28,7 +28,7 @@
                 </span>
             </p>
             <p class='text-gray-800 text-sm mb-3 font-bold'>
-                0
+                {{ $user->posts->count() }}
                 <span class="font-normal">
                     Posts
                 </span>
@@ -46,7 +46,7 @@
             {{-- Sin regresarle $posts desde el controlador también hay un camino desde user, pero sólo se puede paginar desde la colección del controlador--}}
                 {{-- @foreach ($user->posts as $post) --}}
             <div>
-                <a href="">
+                <a href="{{ route('posts.show', ['post' => $post, 'user' => $user]) }}">
                     <img src="{{asset('uploads') . "/" . $post->image}}" alt="Imagen del post {{$post->title}}">
                 </a> 
             </div>

@@ -37,7 +37,7 @@
                     </label>
                     <textarea id="description" name="description" placeholder="Descripción de la publicación"
                         class="border p-3 w-full rounded-lg @error('description') border-red-500 @enderror">
-                        {{ old('description') }}
+                            {{ old('description') }}
                     </textarea>
                     @error('description')
                         <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
