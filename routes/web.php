@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PostController;
@@ -40,3 +41,6 @@ Route::post('/images', [ImageController::class, 'store'])->name('images.store');
 
 
 Route::post('/{user:username}/posts/{post}', [CommentController::class, 'store'])->name('comments.store');
+
+//Like a las fotos
+Route::post('/post/{post}/likes', [LikeController::class,'store'])->name('posts.likes.store');
