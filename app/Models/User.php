@@ -50,4 +50,8 @@ class User extends Authenticatable
         // se puede especificar el campo de la fk de esta forma
         // return $this->hasMany(Post::class, 'user_id');
     }
+
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
 }
