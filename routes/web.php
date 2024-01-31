@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
@@ -22,9 +23,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+// Al tener un único método se puede declarar sólo el __invoke() y llamar sin arreglo
+Route::get('/',HomeController::class)->name('home');
 
 Route::get('/register',[RegisterController::class, 'index'])->name('register');
 Route::post('/register',[RegisterController::class, 'store']);
@@ -51,5 +51,5 @@ Route::post('/post/{post}/likes', [LikeController::class, 'store'])->name('posts
 Route::delete('/post/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');
 
 // Follow users
-Route::post('/{user:username}/follow', [LikeController::class, FollowerController::class, 'store'])->name('users.follow');
-Route::post('/{user:username}/unfollow', [LikeController::class, FollowerController::class, 'destroy'])->name('users.unfollow');
+Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
+Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
