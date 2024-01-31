@@ -23,7 +23,10 @@
 				"amirmarmul.laravel-blade-vscode",
 				"austenc.laravel-blade-spacer",
 				"xdebug.php-debug",
-				"zobo.php-intellisense"
+				"zobo.php-intellisense",
+				"cierra.livewire-vscode",
+				"austenc.livewire-docs",
+				"m4tr1ck.livewire-goto-updated-3"
 			],
 			"settings": {}
 		}
