@@ -8,13 +8,14 @@
         @stack('styles')
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
+        @livewireStyles
     </head>
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-3xl font-black">
+                <a href="{{ route('home') }}" class="text-3xl font-black">
                     DevStagram
-                </h1>
+                </a>
                 {{-- @if(auth()->user())
                     <p>Autenticado</p>
                 @else
@@ -52,7 +53,7 @@
             </div>
         </header>
         <main class="container mx-auto mt-10">
-            <h2 class="font-bold text-center text-3xl mb-10">
+            <h2 class="text-3xl text-center font-black my-10 uppercase">
                 @yield('title')
             </h2>
             @yield('content')
@@ -60,5 +61,6 @@
         <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
             DevStagram - Todos los derechos reservados {{ now()->year }}.
         </footer>
+        @livewireScripts()
     </body>
 </html>

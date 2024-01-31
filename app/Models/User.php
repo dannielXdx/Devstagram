@@ -43,4 +43,34 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+        // Para casos donde se rompe la convención de laravel y sus nombres,
+        // se puede especificar el campo de la fk de esta forma
+        // return $this->hasMany(Post::class, 'user_id');
+    }
+
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
+
+    public function followings(){
+        return $this->hasMany(Follower::class);
+    }
+
+    //Otra forma
+    // public function followers(){
+    //     return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id');
+    // }
+    public function followers(){
+        return $this->hasMany(Follower::class, 'follower_id');
+    }
+    //Otra forma
+    // public function followings(){
+    //     return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id');
+    // }
+    public function checkFollow(User $user){
+        return $this->followings->contains('follower_id', $user->id);
+    }
 }

@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    Contenido
+    <x-PostList :posts="$posts"/>
 @endsection

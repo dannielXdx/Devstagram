@@ -15,7 +15,18 @@
 				"onecentlin.laravel5-snippets",
 				"onecentlin.laravel-blade",
 				"bmewburn.vscode-intelephense-client",
-				"eamodio.gitlens"
+				"eamodio.gitlens",
+				"bradlc.vscode-tailwindcss",
+				"ecmel.vscode-html-css",
+				"DEVSENSE.intelli-php-vscode",
+				"Zignd.html-css-class-completion",
+				"amirmarmul.laravel-blade-vscode",
+				"austenc.laravel-blade-spacer",
+				"xdebug.php-debug",
+				"zobo.php-intellisense",
+				"cierra.livewire-vscode",
+				"austenc.livewire-docs",
+				"m4tr1ck.livewire-goto-updated-3"
 			],
 			"settings": {}
 		}
